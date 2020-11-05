@@ -19,6 +19,13 @@ public class Voces : MonoBehaviour
 		selec=false;
 		if(Input.GetKeyUp(KeyCode.Return)) {
 			selec=true;
+			
+		}else{
+			selec=false;
+		}
+		
+		if(Input.GetKeyUp(KeyCode.Return)) {
+			selec=true;
 		}else{
 			selec=false;
 		}

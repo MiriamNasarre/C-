@@ -26,9 +26,9 @@ void Start()
 
 
 void Update(){
-	if(derecha.transform.position.y>=800 && izquierda.transform.position.y>=865){
-		derecha.transform.position = new Vector3(800,-500,196);
-		izquierda.transform.position = new Vector3(350,-500,196);
+	if(derecha.transform.position.y>=865 && izquierda.transform.position.y>=865){
+		derecha.transform.position = new Vector3(743,-500,196);
+		izquierda.transform.position = new Vector3(302,-500,196);
 		changeImage();
 	}else{
 		derecha.transform.position += new Vector3(0,1,0)*Time.deltaTime*100;

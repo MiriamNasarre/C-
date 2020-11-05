@@ -17,6 +17,7 @@ public class Personajes : MonoBehaviour
 	public GameObject j1,j2;
 	public GameObject[] personajes;
 	Image s2;
+	Text text;
   
  public GameObject[] botones;
 
@@ -32,6 +33,7 @@ public class Personajes : MonoBehaviour
 	j2=GameObject.Find("j2");
 	s2=GameObject.Find("s2").GetComponent<Image>();
 	s2.enabled=false;
+	text=GameObject.Find("Canvas/Text").GetComponent<Text>();
    }
    
    void jugador(GameObject [] objetos,GameObject contenedor){
@@ -46,10 +48,14 @@ public class Personajes : MonoBehaviour
 			xant=x;
 			x+=42;
 			Debug.Log(x);
-			for(int y=56;y<70;y++){
+			for(int y=0;y<42;y++){
 				botones[y].SetActive(false);
 				
 			}
+			for (int x=42;x<70;x++){
+				botones[x].SetActive(true);
+			}
+			text.text="2/2";
 			
 			}
 			
@@ -57,9 +63,14 @@ public class Personajes : MonoBehaviour
 	if(Input.GetKeyUp(KeyCode.C)){
 			x=xant;
 			Debug.Log(x);
-			for(int y=56;y<70;y++){
+			for(int y=0;y<42;y++){
 				botones[y].SetActive(true);
 			}
+			
+			for (int x=42;x<70;x++){
+				botones[x].SetActive(false);
+			}
+			text.text="1/2";
 	}
 
 
@@ -82,7 +93,7 @@ public class Personajes : MonoBehaviour
 							x+=1;
 							Debug.Log("X der: "+x);
 							selector.transform.position+=new Vector3(75,0,0);
-						}else if(x>55 && x<69){
+						}else if(x>55 && x<70){
 							x+=1;
 							Debug.Log("X der: "+x);
 							selector.transform.position+=new Vector3(75,0,0);
@@ -181,18 +192,28 @@ public class Personajes : MonoBehaviour
 			xant2=x2;
 			x2+=42;
 			//Debug.Log(x2);
-			for(int y2=56;y2<70;y2++){
+			for(int y2=0;y2<42;y2++){
 				botones[y2].SetActive(false);
 			}
+			
+			for (int x2=42;x2<70;x2++){
+				botones[x2].SetActive(true);
+			}
+			text.text="2/2";
 			
 			}
 			
 			
 	if(Input.GetKeyUp(KeyCode.C)){
 			x2=xant2;
-			for(int y2=56;y2<70;y2++){
+			for(int y2=0;y2<42;y2++){
 				botones[y2].SetActive(true);
 			}
+			
+			for (int x2=42;x2<70;x2++){
+				botones[x2].SetActive(false);
+			}
+			text.text="1/2";
 	}
 
 
@@ -204,15 +225,18 @@ public class Personajes : MonoBehaviour
 		  j2.transform.position=new Vector3(311,-61,+240);
 		    j2=personajes[x2];
 	   		personajes[x2].SetActive(true);
+			personajes[x2].transform.position+= new Vector3(0,-100,0);
 		}else if(y2==1){
 		   j2=personajes[x2+14];	  
 			j2.transform.position=new Vector3(311,-61,+240);
 		   personajes[x2+14].SetActive(true);
+		   personajes[x2+14].transform.position+= new Vector3(0,-100,0);
 				Debug.Log(j2);
 		}else if(y2==2){
 			j2=personajes[x2+28];		  
 		j2.transform.position=new Vector3(311,-61,+240);
 		personajes[x2+28].SetActive(true);
+		personajes[x2+28].transform.position+= new Vector3(0,-100,0);
 			
 		}
 		for(int y2=56;y2<70;y2++){
